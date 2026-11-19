@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アバター名 1 | お気に入りアバター詳細</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="site-logo">SORA<span>.</span>PORTAL</a>
+    <nav>
+      <a href="index.html">Top</a>
+      <a href="events.html">Events</a>
+      <a href="avatars.html" class="active">Avatars</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="detail-card">
+      <div class="detail-layout">
+        <!-- 左側：複数枚スライドショー -->
+        <div class="detail-gallery">
+          <div class="slider-wrap">
+            <button type="button" class="slide-btn prev" onclick="changeSlide(-1)">‹</button>
+            <div class="slider-frame portrait">
+              <img id="mainSlideImg" src="assets/avatar01-1.png" alt="アバター写真1">
+            </div>
+            <button type="button" class="slide-btn next" onclick="changeSlide(1)">›</button>
+          </div>
+          <div class="thumb-row">
+            <img src="assets/avatar01-1.png" alt="写真1" class="active" onclick="setSlide(0)">
+            <img src="assets/avatar01-2.png" alt="写真2" onclick="setSlide(1)">
+            <img src="assets/avatar01-3.png" alt="写真3" onclick="setSlide(2)">
+          </div>
+        </div>
+
+        <!-- 右側：アバター情報＆商品ページURL -->
+        <div class="detail-info">
+          <span class="item-tag">メインアバター</span>
+          <h1>アバター名 1</h1>
+          <p class="detail-desc">
+            一番よく使っているメインアバターです。淡い水色と白をベースにした改変がお気に入りポイントです！
+          </p>
+
+          <div class="meta-table">
+            <div class="meta-row"><span>ショップ / 作者</span><span>〇〇ショップ</span></div>
+            <div class="meta-row"><span>主な改変</span><span>ヘアカラー変更・衣装テクスチャ改変</span></div>
+            <div class="meta-row"><span>使用シーン</span><span>イベントお給仕・普段の雑談</span></div>
+          </div>
+
+          <!-- アバター商品ページのURLボタン -->
+          <a href="https://booth.pm/" target="_blank" rel="noopener" class="action-btn">
+            アバター販売ページ（BOOTH）を見る ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-area">
+      <a href="avatars.html" class="back-link">← お気に入りアバター一覧へ戻る</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 SORA PORTAL</p>
+  </footer>
+
+  <script>
+    const slideImages = [
+      "assets/avatar01-1.png",
+      "assets/avatar01-2.png",
+      "assets/avatar01-3.png"
+    ];
+    let current = 0;
+
+    function setSlide(idx) {
+      current = idx;
+      document.getElementById("mainSlideImg").src = slideImages[current];
+      document.querySelectorAll(".thumb-row img").forEach((img, i) => {
+        img.classList.toggle("active", i === current);
+      });
+    }
+
+    function changeSlide(step) {
+      current = (current + step + slideImages.length) % slideImages.length;
+      setSlide(current);
+    }
+  </script>
+</body>
+</html>
