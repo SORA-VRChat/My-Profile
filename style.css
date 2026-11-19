@@ -8,7 +8,7 @@
   --accent: #5aa9e6;
   --accent-soft: #ebf5ff;
   --border: #e2e8f0;
-  --shadow: 0 8px 24px rgba(45, 55, 72, 0.06);
+  --shadow: 0 8px 24px rgba(45, 55, 72, 0.08);
 }
 
 * {
@@ -19,7 +19,9 @@
 
 body {
   font-family: 'Zen Maru Gothic', sans-serif;
-  background-color: var(--bg-page);
+  /* 水色〜青のグラデーションに変更 */
+  background: linear-gradient(135deg, #d4f1f9 0%, #89c4f4 50%, #5aa9e6 100%);
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.75;
   min-height: 100vh;
@@ -38,7 +40,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   padding: 1rem 6%;
@@ -111,7 +113,8 @@ main {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: var(--accent);
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.3rem;
@@ -125,7 +128,7 @@ main {
 
 .page-desc {
   font-size: 0.92rem;
-  color: var(--text-sub);
+  color: var(--text-main);
   margin-top: 0.5rem;
 }
 
@@ -141,12 +144,13 @@ main {
 }
 
 .profile-avatar {
-  width: 112px;
-  height: 112px;
+  /* 元の112pxの2倍に変更 */
+  width: 224px;
+  height: 224px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--accent-soft);
-  margin: 0 auto 1rem;
+  border: 5px solid var(--accent-soft);
+  margin: 0 auto 1.2rem;
   display: block;
   background: #edf2f7;
 }
@@ -514,7 +518,7 @@ footer {
   text-align: center;
   padding: 2rem 5%;
   border-top: 1px solid var(--border);
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.9);
   font-size: 0.85rem;
   color: var(--text-sub);
 }
