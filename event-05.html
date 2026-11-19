@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garden Luxe | 所属Event詳細</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="site-logo">SORA<span>.</span>PORTAL</a>
+    <nav>
+      <a href="index.html">Top</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="avatars.html">Avatars</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="detail-card">
+      <div class="detail-layout">
+        <!-- 左側：複数枚スライドショー -->
+        <div class="detail-gallery">
+          <div class="slider-wrap">
+            <button type="button" class="slide-btn prev" onclick="changeSlide(-1)">‹</button>
+            <div class="slider-frame">
+              <img id="mainSlideImg" src="assets/event05-1.png" alt="イベント写真1">
+            </div>
+            <button type="button" class="slide-btn next" onclick="changeSlide(1)">›</button>
+          </div>
+          <div class="thumb-row">
+            <img src="assets/event05-1.png" alt="写真1" class="active" onclick="setSlide(0)">
+            <img src="assets/event05-2.png" alt="写真2" onclick="setSlide(1)">
+            <img src="assets/event05-3.png" alt="写真3" onclick="setSlide(2)">
+          </div>
+        </div>
+
+        <!-- 右側：イベント情報＆所属グループURL -->
+        <div class="detail-info">
+          <span class="item-tag">ジャンル・役割</span>
+          <h1>Garden Luxe</h1>
+          <p class="detail-desc">
+            ここにイベントの詳細な説明文が入ります。
+          </p>
+
+          <div class="meta-table">
+            <div class="meta-row"><span>担当・役割</span><span>キャスト</span></div>
+            <div class="meta-row"><span>開催日</span><span>定期開催（公式Xにて告知）</span></div>
+            <div class="meta-row"><span>グループID</span><span>XXXX.0000</span></div>
+          </div>
+
+          <!-- 所属グループのURLボタン -->
+          <a href="https://vrc.group/XXXX.0000" target="_blank" rel="noopener" class="action-btn">
+            VRChat 所属グループページを開く ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-area">
+      <a href="events.html" class="back-link">← 所属Event一覧へ戻る</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>SORA PORTAL</p>
+  </footer>
+
+  <script>
+    const slideImages = [
+      "assets/event05-1.png",
+      "assets/event05-2.png",
+      "assets/event05-3.png"
+    ];
+    let current = 0;
+
+    function setSlide(idx) {
+      current = idx;
+      document.getElementById("mainSlideImg").src = slideImages[current];
+      document.querySelectorAll(".thumb-row img").forEach((img, i) => {
+        img.classList.toggle("active", i === current);
+      });
+    }
+
+    function changeSlide(step) {
+      current = (current + step + slideImages.length) % slideImages.length;
+      setSlide(current);
+    }
+  </script>
+</body>
+</html>
