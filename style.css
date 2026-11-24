@@ -687,3 +687,42 @@ footer {
     padding: 1.5rem;
   }
 }
+/* 情報ボックス（お迎え日・Shop名） */
+.info-box {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 1.1rem 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed #e2e8f0; /* 2行の間の区切り線 */
+}
+
+.info-row:first-child {
+  padding-top: 0;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #334155;
+}
+
+.info-value {
+  color: #64748b; /* お迎え日の文字色 */
+}
+
+.booth-link {
+  color: #3898ec;
+  text-decoration: underline;
+  font-weight: 500;
+}
