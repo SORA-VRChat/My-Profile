@@ -546,3 +546,144 @@ footer {
   font-weight: bold;     /* 「フレア」と同じ太さにする */
   color: #6b7280;        /* ※文字色も「フレア」と全く同じ黒系にしたい場合は、この1行を削除してください */
 }
+
+/* 詳細ページ全体の2カラムレイアウト */
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin: 2rem auto;
+  align-items: start;
+}
+
+/* 左側：縦長メイン画像枠 */
+.main-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* 縦長比率（より細長くしたい場合は 9 / 16 に変更可能） */
+  background: #f1f5f9;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 枠いっぱいに綺麗にトリミング（全体を見せたい場合は contain に変更） */
+}
+
+/* 左右切り替え丸ボタン */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #334155;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.slide-btn.prev { left: 12px; }
+.slide-btn.next { right: 12px; }
+
+/* サムネイル一覧（5枚が横1列に綺麗に収まる設定） */
+.thumb-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5等分で均等配置 */
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* サムネイルも縦長に揃える */
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.thumb.active,
+.thumb:hover {
+  border-color: #3898ec;
+  opacity: 1;
+}
+
+/* 右側：アバター名（カタカナの下に英語名を配置） */
+.detail-avatar-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.85rem;
+  font-weight: bold;
+  color: #1f2937;
+  line-height: 1.3;
+  margin: 0 0 1.25rem 0;
+}
+
+.detail-avatar-sub {
+  margin-top: 0.25rem;
+  font-size: 0.65em;
+  font-weight: bold;
+  color: #6b7280;
+}
+
+/* アバター説明文 */
+.detail-description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 1.75rem;
+}
+
+/* 情報ボックス（Shop名） */
+.info-box {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #334155;
+}
+
+.booth-link {
+  color: #3898ec;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* スマホ表示時は1カラムに切り替え */
+@media (max-width: 768px) {
+  .detail-container {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+}
