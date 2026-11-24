@@ -532,3 +532,16 @@ footer {
     width: 100%;
   }
 }
+/* 全アバター共通のメイン名スタイル */
+.item-body .avatar-name {
+  display: flex;
+  align-items: baseline;
+}
+
+/* 全アバター共通のサブ名（-英語名-）スタイル */
+.item-body .avatar-sub-name {
+  margin-left: 1em;      /* 一文字分の空白 */
+  font-size: 0.75em;     /* 少し小さめの文字サイズ */
+  font-weight: normal;   /* 太字を解除 */
+  color: #6b7280;        /* 少し薄めのグレー */
+}
