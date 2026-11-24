@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サバラム -Savarum- | SORA.PORTAL</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="site-logo">SORA<span>.</span>PORTAL</a>
+    <nav>
+      <a href="index.html">Top</a>
+      <a href="events.html">Events</a>
+      <a href="avatars.html" class="active">Avatars</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <div class="detail-gallery">
+        <div class="main-image-box">
+          <button class="slide-btn prev" onclick="changeSlide(-1)">&#8249;</button>
+          <img id="main-photo" src="assets/avatar11-1.png" alt="サバラム 写真1">
+          <button class="slide-btn next" onclick="changeSlide(1)">&#8250;</button>
+        </div>
+        <div class="thumb-list">
+          <img src="assets/avatar11-1.png" alt="写真1" class="thumb active" onclick="selectPhoto(0)">
+          <img src="assets/avatar11-2.png" alt="写真2" class="thumb" onclick="selectPhoto(1)">
+          <img src="assets/avatar11-3.png" alt="写真3" class="thumb" onclick="selectPhoto(2)">
+          <img src="assets/avatar11-4.png" alt="写真4" class="thumb" onclick="selectPhoto(3)">
+          <img src="assets/avatar11-5.png" alt="写真5" class="thumb" onclick="selectPhoto(4)">
+        </div>
+      </div>
+
+      <div class="detail-info">
+        <h1 class="detail-avatar-name">
+          サバラム
+          <span class="detail-avatar-sub">-Savarum-</span>
+        </h1>
+        <p class="detail-description">
+          ここにサバラムの説明文が入ります。お気に入りの改変や普段よく着ている衣装のポイントなどを紹介できます。
+        </p>
+        <div class="info-box">
+          <div class="info-row">
+            <span class="info-label">Shop</span>
+            <span class="info-value">
+              <a href="https://booth.pm/ja/items/7731139" target="_blank" rel="noopener noreferrer" class="booth-link">
+                1058mart ↗
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SORA PORTAL</p>
+  </footer>
+
+  <script>
+    const photos = [
+      "assets/avatar11-1.png",
+      "assets/avatar11-2.png",
+      "assets/avatar11-3.png",
+      "assets/avatar11-4.png",
+      "assets/avatar11-5.png"
+    ];
+    let currentIndex = 0;
+
+    function selectPhoto(index) {
+      currentIndex = index;
+      document.getElementById("main-photo").src = photos[currentIndex];
+      const thumbs = document.querySelectorAll(".thumb");
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function changeSlide(step) {
+      currentIndex = (currentIndex + step + photos.length) % photos.length;
+      selectPhoto(currentIndex);
+    }
+  </script>
+</body>
+</html>
