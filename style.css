@@ -536,12 +536,13 @@ footer {
 .item-body .avatar-name {
   display: flex;
   align-items: baseline;
+  font-weight: bold; /* 全体の太字指定 */
 }
 
 /* 全アバター共通のサブ名（-英語名-）スタイル */
 .item-body .avatar-sub-name {
-  margin-left: 1em;      /* 一文字分の空白 */
-  font-size: 0.75em;     /* 少し小さめの文字サイズ */
-  font-weight: normal;   /* 太字を解除 */
-  color: #6b7280;        /* 少し薄めのグレー */
+  margin-left: 1em;      /* 一文字分の空白（そのまま） */
+  font-size: 0.75em;     /* 少し小さめの文字サイズ（そのまま） */
+  font-weight: bold;     /* 「フレア」と同じ太さにする */
+  color: #6b7280;        /* ※文字色も「フレア」と全く同じ黒系にしたい場合は、この1行を削除してください */
 }
