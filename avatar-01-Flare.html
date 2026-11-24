@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>てんしのふれあい | 所属イベント詳細</title>
+  <title>フレア -Flare- | SORA.PORTAL</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,87 +11,84 @@
     <a href="index.html" class="site-logo">SORA<span>.</span>PORTAL</a>
     <nav>
       <a href="index.html">Top</a>
-      <a href="events.html" class="active">Events</a>
-      <a href="avatars.html">Avatars</a>
+      <a href="events.html">Events</a>
+      <a href="avatars.html" class="active">Avatars</a>
     </nav>
   </header>
 
   <main>
-    <div class="detail-card">
-      <div class="detail-layout">
-        <!-- 左側：複数枚スライドショー -->
-        <div class="detail-gallery">
-          <div class="slider-wrap">
-            <button type="button" class="slide-btn prev" onclick="changeSlide(-1)">‹</button>
-            <div class="slider-frame">
-              <img id="mainSlideImg" src="assets/event01-1.png" alt="イベント写真1">
-            </div>
-            <button type="button" class="slide-btn next" onclick="changeSlide(1)">›</button>
-          </div>
-          <div class="thumb-row">
-            <img src="assets/event01-1.png" alt="写真1" class="active" onclick="setSlide(0)">
-            <img src="assets/event01-2.png" alt="写真2" class="active" onclick="setSlide(1)">
-            <img src="assets/event01-3.png" alt="写真3" class="active" onclick="setSlide(2)">
-          </div>
+    <div class="detail-container">
+      <!-- 左側：縦長画像ギャラリー（5枚対応） -->
+      <div class="detail-gallery">
+        <div class="main-image-box">
+          <button class="slide-btn prev" onclick="changeSlide(-1)">&#8249;</button>
+          <img id="main-photo" src="assets/avatar01-1.png" alt="フレア 写真1">
+          <button class="slide-btn next" onclick="changeSlide(1)">&#8250;</button>
         </div>
-
-        <!-- 右側：イベント情報＆所属グループURL -->
-        <div class="detail-info">
-          <span class="item-tag">カフェ・接客イベント</span>
-          <h1>てんしのふれあい</h1>
-          <p class="detail-desc">
-            「フレアちゃんに囲まれる、癒しのひと時。」をテーマにしたVRChatメイドカフェイベントです。0期生メイドとしてお給仕しています！
-          </p>
-
-          <div class="meta-table">
-            <div class="meta-row"><span>開催日</span><span>不定期開催（公式Xにて告知）</span></div>
-            <div class="meta-row">
-              <span>公式X</span>
-              <span>
-                <a href="https://x.com/flare_cafe_" target="_blank" rel="noopener" style="color: #5aa9e6; text-decoration: underline; font-weight: 700;">
-                  @flare_cafe_ ↗
-                </a>
-              </span>
-            </div>
-            <div class="meta-row"><span>公式グループID</span><span>TENFLR.3744</span></div>
-          </div>
-
-          <!-- 所属グループのURLボタン -->
-          <a href="https://vrchat.com/home/group/grp_5ab4004f-05e5-430d-a8ed-023acdf99ce2" target="_blank" rel="noopener" class="action-btn">
-            VRChat 所属グループページを開く ↗
-          </a>
+        <div class="thumb-list">
+          <img src="assets/avatar01-1.png" alt="写真1" class="thumb active" onclick="selectPhoto(0)">
+          <img src="assets/avatar01-2.png" alt="写真2" class="thumb" onclick="selectPhoto(1)">
+          <img src="assets/avatar01-3.png" alt="写真3" class="thumb" onclick="selectPhoto(2)">
+          <img src="assets/avatar01-4.png" alt="写真4" class="thumb" onclick="selectPhoto(3)">
+          <img src="assets/avatar01-5.png" alt="写真5" class="thumb" onclick="selectPhoto(4)">
         </div>
       </div>
-    </div>
 
-    <div class="back-area">
-      <a href="events.html" class="back-link">← 所属イベント一覧へ戻る</a>
+      <!-- 右側：アバター情報 -->
+      <div class="detail-info">
+        <!-- アバター名（英語名を下に配置） -->
+        <h1 class="detail-avatar-name">
+          フレア
+          <span class="detail-avatar-sub">-Flare-</span>
+        </h1>
+
+        <!-- アバター説明文 -->
+        <p class="detail-description">
+          魂の形と同じメインアバターで、お気に入りの改変や普段よく着ている衣装のポイントなどを紹介できます。
+        </p>
+
+        <!-- Shop名ボックス（クリックでBOOTHへリンク） -->
+        <div class="info-box">
+          <div class="info-row">
+            <span class="info-label">Shop名</span>
+            <span class="info-value">
+              <a href="https://booth.pm/ja/items/4768506" target="_blank" rel="noopener noreferrer" class="booth-link">
+                Elychiffon ↗
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>SORA PORTAL</p>
+    <p>&copy; 2026 SORA PORTAL</p>
   </footer>
 
+  <!-- 画像切り替え用JavaScript（5枚対応） -->
   <script>
-    const slideImages = [
-      "assets/event01-1.png",
-      "assets/event01-2.png",
-      "assets/event01-3.png"
+    const photos = [
+      "assets/avatar01-1.png",
+      "assets/avatar01-2.png",
+      "assets/avatar01-3.png",
+      "assets/avatar01-4.png",
+      "assets/avatar01-5.png"
     ];
-    let current = 0;
+    let currentIndex = 0;
 
-    function setSlide(idx) {
-      current = idx;
-      document.getElementById("mainSlideImg").src = slideImages[current];
-      document.querySelectorAll(".thumb-row img").forEach((img, i) => {
-        img.classList.toggle("active", i === current);
+    function selectPhoto(index) {
+      currentIndex = index;
+      document.getElementById("main-photo").src = photos[currentIndex];
+      const thumbs = document.querySelectorAll(".thumb");
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === currentIndex);
       });
     }
 
     function changeSlide(step) {
-      current = (current + step + slideImages.length) % slideImages.length;
-      setSlide(current);
+      currentIndex = (currentIndex + step + photos.length) % photos.length;
+      selectPhoto(currentIndex);
     }
   </script>
 </body>
