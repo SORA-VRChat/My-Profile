@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube | Sora's Portal</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .yt-hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+
+    .yt-hero-img {
+      width: 108% !important;
+      max-width: 1060px !important;
+      height: auto !important;
+      border-radius: 20px;
+      box-shadow: none !important;
+      border: none !important;
+      background: none !important;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .yt-hero-btn-area {
+      margin-top: 1.4rem;
+    }
+
+    @media (max-width: 760px) {
+      .yt-hero-img {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0;
+        transform: none;
+        border-radius: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,7 +57,7 @@
   </header>
 
   <main>
-    <!-- 大きめ角丸のタイトルバナー -->
+    <!-- 大きめ角丸のタイトルバナー（枠なし） -->
     <section class="yt-hero">
       <img src="assets/YouTube.png" alt="SORA LINK" class="yt-hero-img">
       <div class="yt-hero-btn-area">
