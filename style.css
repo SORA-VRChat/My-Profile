@@ -776,12 +776,14 @@ footer {
   transform: translateY(-4px);
 }
 
-/* 左上の動画タイトル */
+/* 動画タイトル */
 .yt-card-title {
   font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-main);
+  margin-top: 0.8rem;    /* ← ここを増やすと下に下がります（例：0.5rem〜1.5rem） */
   margin-bottom: 0.8rem;
+  padding-left: 0.4rem;  /* ← 左枠との間隔を少し空けたい場合 */
   padding-right: 1rem;
 }
 
