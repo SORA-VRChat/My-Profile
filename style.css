@@ -725,3 +725,106 @@ footer {
   text-decoration: underline;
   font-weight: 500;
 }
+/* =========================================
+   YouTubeページ専用スタイル
+   ========================================= */
+
+/* タイトル画像エリア */
+.yt-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.yt-hero-img {
+  width: 100%;
+  max-width: 920px;
+  height: auto;
+  border-radius: 24px; /* 角を少し丸くする */
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 0 auto;
+}
+
+.yt-hero-btn-area {
+  margin-top: 1.2rem;
+}
+
+/* 縦1列の動画リスト */
+.yt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* 外側の枠（背景画像を使用） */
+.yt-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  padding: 2rem 3.2rem 2.2rem;
+  /* 外枠の画像パス */
+  background-image: url("assets/youtube-frame.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.25s ease;
+}
+
+.yt-card:hover {
+  transform: translateY(-4px);
+}
+
+/* 左上の動画タイトル */
+.yt-card-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.8rem;
+  padding-right: 1rem;
+}
+
+/* 右下のメモ帳エリア（背景画像を使用） */
+.yt-card-memo {
+  align-self: flex-end; /* 右下に配置 */
+  width: 56%;
+  max-width: 440px;
+  min-height: 96px;
+  padding: 1.1rem 1.8rem 1.1rem 1.4rem;
+  /* メモ帳の画像パス */
+  background-image: url("assets/youtube-memo.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.yt-card-memo p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* スマホ画面でのレイアウト調整 */
+@media (max-width: 760px) {
+  .yt-card {
+    padding: 1.6rem 1.8rem 1.8rem;
+    min-height: 190px;
+  }
+
+  .yt-card-title {
+    font-size: 1.15rem;
+  }
+
+  .yt-card-memo {
+    width: 100%;
+    max-width: none;
+    padding: 0.9rem 1.3rem 0.9rem 1rem;
+  }
+
+  .yt-card-memo p {
+    font-size: 0.82rem;
+  }
+}
