@@ -136,20 +136,21 @@ main {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 24px;
-  padding: 2.6rem 2rem;
+  /* 上左右の余白を少し詰めて、画像をカード幅いっぱいに見せる */
+  padding: 0.9rem 0.9rem 2.4rem;
   text-align: center;
   box-shadow: var(--shadow);
   margin-bottom: 2.5rem;
 }
 
 .profile-avatar {
-  /* 元の112pxの2倍に変更 */
-  width: 224px;
-  height: 224px;
-  border-radius: 50%;
+  /* 丸アイコンから横長バナーに変更 */
+  width: 100%;
+  height: 280px; /* ← 画像の高さはお好みで調整してください（例：240px〜320px） */
+  border-radius: 16px;
   object-fit: cover;
-  border: 5px solid var(--accent-soft);
-  margin: 0 auto 1.2rem;
+  object-position: center;
+  margin: 0 auto 1.4rem;
   display: block;
   background: #edf2f7;
 }
